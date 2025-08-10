@@ -1,0 +1,277 @@
+{
+  "seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "days": 90,
+  "config": {
+    "ingest": {
+      "max_lateness_seconds": 900.0,
+      "max_buffer": 200000
+    },
+    "baseline": {
+      "half_life_days": 30.0,
+      "warmup_days": 7.0,
+      "warmup_events": 50,
+      "familiar_min_weight": 3.0,
+      "suppress_familiar": true,
+      "max_principals": 50000,
+      "max_apis": 512,
+      "max_regions": 32,
+      "max_ua_families": 16,
+      "max_asns": 64,
+      "max_countries": 32
+    },
+    "travel": {
+      "enabled": true,
+      "max_speed_kmh": 1000.0,
+      "min_distance_km": 500.0,
+      "severity": "high"
+    },
+    "console_mfa": {
+      "enabled": true,
+      "window_minutes": 120.0,
+      "login_severity": "low",
+      "change_severity": "critical"
+    },
+    "access_keys": {
+      "enabled": true,
+      "routine_min_weight": 1.5
+    },
+    "enumeration": {
+      "enabled": true,
+      "window_minutes": 10.0,
+      "min_distinct_apis": 20,
+      "min_services": 4,
+      "min_denied": 12,
+      "peak_margin": 1.25,
+      "max_window_items": 2000
+    },
+    "logging_tamper": {
+      "enabled": true,
+      "allowlist_trail_prefixes": []
+    },
+    "novelty": {
+      "enabled": true,
+      "region_severity": "low",
+      "ua_family_severity": "medium",
+      "asn_severity": "low",
+      "country_severity": "medium",
+      "rare_api_severity": "low",
+      "sensitive_api_severity": "medium",
+      "global_rare_share": 0.002,
+      "sensitive_apis": [
+        "secretsmanager:GetSecretValue",
+        "ssm:GetParameters",
+        "ssm:GetParameter",
+        "kms:Decrypt",
+        "iam:CreateAccessKey",
+        "iam:CreateLoginProfile",
+        "iam:UpdateLoginProfile",
+        "iam:AttachUserPolicy",
+        "iam:PutUserPolicy",
+        "iam:AttachRolePolicy",
+        "iam:UpdateAssumeRolePolicy",
+        "sts:GetFederationToken",
+        "s3:PutBucketPolicy",
+        "s3:PutBucketAcl",
+        "ec2:ModifySnapshotAttribute",
+        "ec2:CreateKeyPair",
+        "ec2:ImportKeyPair"
+      ]
+    },
+    "scoring": {
+      "half_life_hours": 6.0,
+      "threshold": 60.0,
+      "weight_info": 0.0,
+      "weight_low": 10.0,
+      "weight_medium": 25.0,
+      "weight_high": 50.0,
+      "weight_critical": 80.0,
+      "max_contributions": 32,
+      "direct_alert_severity": "high"
+    },
+    "dedup": {
+      "ttl_hours": 12.0,
+      "max_entries": 100000,
+      "max_evidence": 50
+    },
+    "state": {
+      "max_rule_principals": 50000
+    }
+  },
+  "variants": {
+    "full": {
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005
+      ],
+      "days": 450,
+      "events": 443082,
+      "incidents": 60,
+      "detected": 50,
+      "alerts": 158,
+      "true_alerts": 137,
+      "precision": 0.8671,
+      "recall": 0.8333,
+      "alerts_per_day": 0.3511,
+      "false_alerts_per_day": 0.0467,
+      "median_minutes_to_detect": 0.0,
+      "events_per_second": 30058,
+      "recall_by_scenario": {
+        "access_key_persistence": 1.0,
+        "console_no_mfa_privesc": 1.0,
+        "defense_evasion": 1.0,
+        "low_and_slow": 0.0,
+        "recon_burst": 1.0,
+        "stolen_access_key": 1.0
+      },
+      "false_alerts_by_rule": {
+        "console_no_mfa_iam_change": 8,
+        "logging_disabled": 2,
+        "risk_threshold": 11
+      },
+      "true_alerts_by_rule": {
+        "behavioral_novelty": 37,
+        "console_no_mfa_iam_change": 10,
+        "enumeration_burst": 11,
+        "impossible_travel": 26,
+        "logging_disabled": 27,
+        "risk_threshold": 6,
+        "unusual_access_key_creation": 20
+      }
+    },
+    "no_familiarity_suppression": {
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005
+      ],
+      "days": 450,
+      "events": 443082,
+      "incidents": 60,
+      "detected": 50,
+      "alerts": 2531,
+      "true_alerts": 151,
+      "precision": 0.0597,
+      "recall": 0.8333,
+      "alerts_per_day": 5.6244,
+      "false_alerts_per_day": 5.2889,
+      "median_minutes_to_detect": 0.0,
+      "events_per_second": 28106,
+      "recall_by_scenario": {
+        "access_key_persistence": 1.0,
+        "console_no_mfa_privesc": 1.0,
+        "defense_evasion": 1.0,
+        "low_and_slow": 0.0,
+        "recon_burst": 1.0,
+        "stolen_access_key": 1.0
+      },
+      "false_alerts_by_rule": {
+        "console_no_mfa_iam_change": 8,
+        "enumeration_burst": 2344,
+        "logging_disabled": 2,
+        "risk_threshold": 26
+      },
+      "true_alerts_by_rule": {
+        "behavioral_novelty": 37,
+        "console_no_mfa_iam_change": 10,
+        "enumeration_burst": 23,
+        "impossible_travel": 28,
+        "logging_disabled": 27,
+        "risk_threshold": 6,
+        "unusual_access_key_creation": 20
+      }
+    },
+    "no_behavioral_novelty": {
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005
+      ],
+      "days": 450,
+      "events": 443082,
+      "incidents": 60,
+      "detected": 45,
+      "alerts": 107,
+      "true_alerts": 94,
+      "precision": 0.8785,
+      "recall": 0.75,
+      "alerts_per_day": 0.2378,
+      "false_alerts_per_day": 0.0289,
+      "median_minutes_to_detect": 0.0,
+      "events_per_second": 31580,
+      "recall_by_scenario": {
+        "access_key_persistence": 1.0,
+        "console_no_mfa_privesc": 1.0,
+        "defense_evasion": 1.0,
+        "low_and_slow": 0.0,
+        "recon_burst": 1.0,
+        "stolen_access_key": 0.5
+      },
+      "false_alerts_by_rule": {
+        "console_no_mfa_iam_change": 8,
+        "logging_disabled": 2,
+        "risk_threshold": 3
+      },
+      "true_alerts_by_rule": {
+        "console_no_mfa_iam_change": 10,
+        "enumeration_burst": 11,
+        "impossible_travel": 26,
+        "logging_disabled": 27,
+        "unusual_access_key_creation": 20
+      }
+    },
+    "no_risk_scoring": {
+      "seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005
+      ],
+      "days": 450,
+      "events": 443082,
+      "incidents": 60,
+      "detected": 47,
+      "alerts": 141,
+      "true_alerts": 131,
+      "precision": 0.9291,
+      "recall": 0.7833,
+      "alerts_per_day": 0.3133,
+      "false_alerts_per_day": 0.0222,
+      "median_minutes_to_detect": 0.0,
+      "events_per_second": 30814,
+      "recall_by_scenario": {
+        "access_key_persistence": 1.0,
+        "console_no_mfa_privesc": 1.0,
+        "defense_evasion": 1.0,
+        "low_and_slow": 0.0,
+        "recon_burst": 1.0,
+        "stolen_access_key": 0.7
+      },
+      "false_alerts_by_rule": {
+        "console_no_mfa_iam_change": 8,
+        "logging_disabled": 2
+      },
+      "true_alerts_by_rule": {
+        "behavioral_novelty": 37,
+        "console_no_mfa_iam_change": 10,
+        "enumeration_burst": 11,
+        "impossible_travel": 26,
+        "logging_disabled": 27,
+        "unusual_access_key_creation": 20
+      }
+    }
+  }
+}
