@@ -1,0 +1,35 @@
+# SYNTHETIC IP->network map for trailwatch. Every range is reserved address space
+# (RFC 6598 shared space 100.64.0.0/10 and RFC 2544 benchmarking space 198.18.0.0/15) and every
+# ASN is from the private-use range 64512-65534. Organisation names are invented. Coordinates are
+# the public city-centre coordinates of the named city. Do not use for real-world attribution.
+cidr,asn,org,kind,country,city,lat,lon
+100.64.0.0/16,64512,Example Corp HQ,corporate,US,Seattle,47.6062,-122.3321
+100.65.0.0/16,64513,Example Corp Dublin Office,corporate,IE,Dublin,53.3498,-6.2603
+100.66.0.0/16,64514,Example Corp VPN Frankfurt,vpn,DE,Frankfurt,50.1109,8.6821
+100.67.0.0/16,64515,Example Corp VPN Ashburn,vpn,US,Ashburn,39.0438,-77.4874
+100.68.0.0/16,64520,Cascade Broadband,isp,US,Seattle,47.6062,-122.3321
+100.69.0.0/16,64521,Lone Star Fiber,isp,US,Austin,30.2672,-97.7431
+100.70.0.0/16,64522,Liffey Cable,isp,IE,Dublin,53.3498,-6.2603
+100.71.0.0/16,64523,Deccan Net,isp,IN,Bengaluru,12.9716,77.5946
+100.72.0.0/16,64524,Pacific Mobile,mobile,US,Los Angeles,34.0522,-118.2437
+100.73.0.0/16,64525,Emerald Mobile,mobile,IE,Cork,51.8985,-8.4756
+100.74.0.0/16,64526,Thames Hospitality WiFi,isp,GB,London,51.5074,-0.1278
+100.75.0.0/16,64527,Sakura Hikari,isp,JP,Tokyo,35.6762,139.6503
+100.76.0.0/16,64528,Harbour Telecom,isp,SG,Singapore,1.3521,103.8198
+100.77.0.0/16,64529,Paulista Conecta,isp,BR,Sao Paulo,-23.5505,-46.6333
+100.78.0.0/16,64530,Maple Online,isp,CA,Toronto,43.6532,-79.3832
+100.79.0.0/16,64531,Isar Netz,isp,DE,Munich,48.1351,11.5820
+100.80.0.0/16,64532,Harbourside Broadband,isp,AU,Sydney,-33.8688,151.2093
+100.81.0.0/16,64533,Gateway Telecom,isp,IN,Mumbai,19.0760,72.8777
+100.82.0.0/16,64534,Prairie Wireless,mobile,US,Chicago,41.8781,-87.6298
+198.18.0.0/20,64540,BuildRunner CI,hosting,US,Ashburn,39.0438,-77.4874
+198.18.16.0/20,64541,Example Corp Data Center,corporate,US,Portland,45.5152,-122.6784
+198.18.32.0/20,64550,Nimbus VPS,hosting,NL,Amsterdam,52.3676,4.9041
+198.18.48.0/20,64551,Kestrel Hosting,hosting,RO,Bucharest,44.4268,26.1025
+198.18.64.0/20,64552,Orion Servers,hosting,US,Dallas,32.7767,-96.7970
+198.18.80.0/20,64553,Zephyr Privacy VPN,vpn,CH,Zurich,47.3769,8.5417
+198.18.96.0/20,64554,Aurora Cloud,hosting,FI,Helsinki,60.1699,24.9384
+198.18.112.0/20,64555,Lagoon Datahub,hosting,NG,Lagos,6.5244,3.3792
+198.18.128.0/20,64556,Mekong Compute,hosting,VN,Ho Chi Minh City,10.8231,106.6297
+198.18.144.0/20,64557,Andes Hosting,hosting,CL,Santiago,-33.4489,-70.6693
+198.18.160.0/20,64558,Vendor SaaS Integrations,hosting,US,Ashburn,39.0438,-77.4874
